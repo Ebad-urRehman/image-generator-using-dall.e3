@@ -11,7 +11,7 @@ from openai import OpenAI
 class Chatbot():
     def __init__(self):
         self.client = OpenAI(
-            api_key="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"
+            api_key="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"
         )
 
 
@@ -113,7 +113,7 @@ def img_to_bytes(img_path):
 
 def save_image(directory_name, img_name, i, image_response_link):
     st.info("Saving Image to disk")
-    save_path = f"{directory_name}\\{img_name}-{i}.png"
+    save_path = f"{directory_name}/{img_name}-{i}.png"
     download_image(image_response_link, save_path)
 
 def delete_all_images(dir):
