@@ -21,7 +21,7 @@ if model_selected == "Dall.E-3":
     selected_option = st.sidebar.radio("", options)
 
     if selected_option == "Generate new images":
-        directory_name = f"files\\images\\Creation\\{date}"
+        directory_name = f"files/images/Creation/{date}"
         if not os.path.exists(directory_name):
             os.makedirs(directory_name)
             i = 0
@@ -71,9 +71,6 @@ if model_selected == "Dall.E-3":
                 # for j, image_response_link in enumerate(image_bot_response):
                 img_name = f"{date}"
 
-                save_path = f"{directory_name}\\{img_name}-{i}.png"
-                functions.download_image(image_bot_response, save_path)
-
 
                 def save_image():
                     st.info("Saving Image to disk")
@@ -86,7 +83,7 @@ if model_selected == "Dall.E-3":
 
     if selected_option == "History":
         # saving directory path
-        directory_path = f"files\\images\\Creation"
+        directory_path = f"files/images/Creation"
         # finding all folders in directory
         history_dir = os.listdir(directory_path)
         history_dir_names = [dir for dir in history_dir]
@@ -120,10 +117,10 @@ if model_selected == "Dall.E-2":
         if selection == "✏️ Edit an Image":
             st.markdown(f"<h1 style='text-align: center;'>✏️ Edit an Image</h1>", unsafe_allow_html=True)
             # making two columns 1 for actual image other for masked image
-            directory_name = f"files\\images\\Edited\\{date}"
-            temp_file_actual = f"files\\temp_files\\actual-{date}.png"
-            temp_file_masked = f"files\\temp_files\\masked-{date}.png"
-            temp_dir = f"files\\temp_files"
+            directory_name = f"files/images/Edited/{date}"
+            temp_file_actual = f"files/temp_files/actual-{date}.png"
+            temp_file_masked = f"files/temp_files/masked-{date}.png"
+            temp_dir = f"files/temp_files"
             i = 0
             if not os.path.exists(directory_name):
                 os.makedirs(directory_name)
@@ -221,9 +218,9 @@ if model_selected == "Dall.E-2":
             st.markdown(f"<h1 style='text-align: center;'>🔄 Make Variations of an Image</h1>", unsafe_allow_html=True)
 
             # directories for storing history
-            directory_name = f"files\\images\\Variations\\{date}"
-            temp_file = f"files\\temp_files\\{date}.png"
-            temp_dir = f"files\\temp_files"
+            directory_name = f"files/images/Variations/{date}"
+            temp_file = f"files/temp_files/{date}.png"
+            temp_dir = f"files/temp_files"
             i = 0
             if not os.path.exists(directory_name):
                 os.makedirs(directory_name)
@@ -289,7 +286,7 @@ if model_selected == "Dall.E-2":
         selection = st.sidebar.selectbox("Selection Menu", selection_image_type)
         if selection == "Image Creation History":
             # saving directory path
-            directory_path = f"files\\images\\Creation"
+            directory_path = f"files/images/Creation"
             # finding all folders in directory
             history_dir = os.listdir(directory_path)
             history_dir_names = [dir for dir in history_dir]
@@ -301,7 +298,7 @@ if model_selected == "Dall.E-2":
                     st.header("Image Creation History")
                     st.info(f"Date : {history_dir_name}")
                     # based on selected day diplaying images
-                    images = (glob.glob(f"{directory_path}\\{history_dir_name}/*.png"))
+                    images = (glob.glob(f"{directory_path}/{history_dir_name}/*.png"))
                     if len(images) == 0:
                         st.warning("Nothing to show here")
                     else:
@@ -309,7 +306,7 @@ if model_selected == "Dall.E-2":
 
         elif selection == "Image Editing History":
             # saving directory path
-            directory_path = f"files\\images\\Edited"
+            directory_path = f"files/images/Edited"
             # finding all folders in directory
             history_dir = os.listdir(directory_path)
             history_dir_names = [dir for dir in history_dir]
@@ -321,7 +318,7 @@ if model_selected == "Dall.E-2":
                 if selected_day == history_dir_name:
                     st.header("Edited Image History")
                     # based on selected day diplaying images
-                    images = (glob.glob(f"{directory_path}\\{history_dir_name}/*.png"))
+                    images = (glob.glob(f"{directory_path}/{history_dir_name}/*.png"))
                     if len(images) == 0:
                         st.warning("Nothing to show here")
                     else:
@@ -329,7 +326,7 @@ if model_selected == "Dall.E-2":
 
         elif selection == "Variations History":
             # saving directory path
-            directory_path = f"files\\images\\Variations"
+            directory_path = f"files/images/Variations"
             # finding all folders in directory
             history_dir = os.listdir(directory_path)
             history_dir_names = [dir for dir in history_dir]
@@ -341,7 +338,7 @@ if model_selected == "Dall.E-2":
                     st.header("Image Variation History")
                     st.info(f"Date : {history_dir_name}")
                     # based on selected day diplaying images
-                    images = (glob.glob(f"{directory_path}\\{history_dir_name}/*.png"))
+                    images = (glob.glob(f"{directory_path}/{history_dir_name}/*.png"))
                     if len(images) == 0:
                         st.warning("Nothing to show here")
                     else:
