@@ -10,7 +10,8 @@ from openai import OpenAI
 
 class Chatbot():
     def __init__(self):
-        self.client = "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"
+        self.client = OpenAI()
+        OpenAI.api_key = os.getenv('OPENAI_API_KEY')
 
 
     def get_image(self, user_input, size, model, quality):
