@@ -74,7 +74,7 @@ if model_selected == "Dall.E-3":
 
                 def save_image():
                     st.info("Saving Image to disk")
-                    save_path = f"{directory_name}\\{img_name}-{i}.png"
+                    save_path = f"{directory_name}/{img_name}-{i}.png"
                     functions.download_image(image_bot_response, save_path)
 
                 save_image()
@@ -95,7 +95,7 @@ if model_selected == "Dall.E-3":
                 st.header("Image Creation History")
                 st.info(f"Date : {history_dir_name}")
                 # based on selected day diplaying images
-                images = (glob.glob(f"{directory_path}\\{history_dir_name}/*.png"))
+                images = (glob.glob(f"{directory_path}/{history_dir_name}/*.png"))
                 if len(images) == 0:
                     st.warning("Nothing to show here")
                 else:
