@@ -11,7 +11,7 @@ from openai import OpenAI
 class Chatbot():
     def __init__(self):
         self.client = OpenAI(
-            api_key="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"
+            api_key=st.secrets.TAF_API_KEY
         )
 
 
